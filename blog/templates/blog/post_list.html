@@ -6,17 +6,15 @@
         <div>
             <h1><a href="">OKC'S Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 13.05.2016, 12:00</p>
-            <h2><a href="">My first post</a></h2>
-            <p>We made it to the conference finals</p>
-        </div>
-
-        <div>
-            <p>published: 13.05.2016, 12:10</p>
-            <h2><a href="">My second post</a></h2>
-            <p>We are going to play against Golden State Warriors</p>
-        </div>
+	{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+{% endfor %}
+       
     </body>
 </html>
+
+
