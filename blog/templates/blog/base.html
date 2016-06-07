@@ -1,26 +1,48 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>OKC's blog</title>
+        <link href="http://fonts.googleapis.com/css?family=Exo&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+        <title>Django Girls blog</title>
     </head>
     <body>
-    	<div class="page-header">
-    		 {% if user.is_authenticated %}
-    			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        	 {% endif %}
-        	<h1><a href="/">OKC</a></h1>
-   	 	</div>
-	 	<div class="content container">
-        	<div class="row">
-            	<div class="col-md-8">
-            	{% block content %}
-            	{% endblock %}
-            	</div>
-    		</div>
-   	 	</div>
+        <div class="page-header">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+            <h1><a href="/">HOPE BLOG</a> <h1> 
+        </div>
+
+        <div class="content container">
+        <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<body id="bcolor">
+        <header>
+
+            <center>
+            <ul id="nav-bar1">
+                
+                <a href="index.html" id="home" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-home"></span> Home
+             
+                <a href="foodprofile.html" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-user"></span> Profile
+           
+                <a href="finder.html" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-search"></span> Map
+
+                </a>
+            </ul>
+            </center>
+		</header>
+    </head>
     </body>
 </html>

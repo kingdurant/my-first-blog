@@ -1,5 +1,9 @@
 {% extends 'blog/base.html' %}
 
+{% block title %}
+<a href="{% url 'user_post_list' pk=request.user.pk %}">{{ request.user }}'s New Post</a>
+{% endblock %}
+
 {% block content %}
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
