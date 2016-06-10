@@ -2,9 +2,6 @@
 
 {% block title %}
 {{ post.title | truncatechars:15 }} by <a href="{% url 'user_post_list' pk=post.author.pk %}">{{ post.author }}</a>
-{% if user.is_authenticated and post.author == user %}
-<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-{% endif %}
 
 {% endblock %}
 
@@ -15,6 +12,9 @@
                 {{ post.published_date }}
             </div>
         {% endif %}
+        {% if user.is_authenticated and post.author == user %}
+<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+{% endif %}
         <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <h3>By <a href="{% url 'user_post_list' pk=post.author.pk %}">{{ post.author }}</a></h3>
         {% if post.picture_URL %}
